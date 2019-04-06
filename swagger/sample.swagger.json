@@ -1,0 +1,68 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "sample.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/sample/hello": {
+      "post": {
+        "summary": "Helloはこんにちはを返す",
+        "operationId": "Hello",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/HelloResponse"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/HelloRequest"
+            }
+          }
+        ],
+        "tags": [
+          "Sample"
+        ]
+      }
+    }
+  },
+  "definitions": {
+    "HelloRequest": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "名前を入れてね"
+        }
+      },
+      "title": "リクエストだよ"
+    },
+    "HelloResponse": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "title": "Hello, \u003cNAME\u003eを返してくれるよ"
+        }
+      },
+      "title": "レスポンスだよ"
+    }
+  }
+}

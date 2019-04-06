@@ -1,0 +1,26 @@
+syntax = "proto3";
+option go_package = "pb";
+
+import "google/api/annotations.proto";
+
+// Sampleは挨拶が得意なフレンズなんだね！
+service Sample {
+  // Helloはこんにちはを返す
+  rpc Hello (HelloRequest) returns (HelloResponse) {
+    option (google.api.http) = {
+      post: "/v1/sample/hello"
+      body: "*"
+    };
+  }
+}
+
+// リクエストだよ
+message HelloRequest {
+  // 名前を入れてね
+  string name = 1;
+}
+// レスポンスだよ
+message HelloResponse {
+  // Hello, <NAME>を返してくれるよ
+  string message = 1;
+}
